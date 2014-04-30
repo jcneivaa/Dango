@@ -1,0 +1,39 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    map<int, int> flor;
+    int crecer, mayor=0, aux =0, dango, meses=0;
+
+    cin>> crecer;
+
+    while(aux<12){
+    cin>>dango;
+    meses+=dango;
+    if(dango> mayor){
+        mayor = dango;
+    }
+    ++flor[dango];
+    ++aux;
+    }
+
+    if(meses>=crecer){
+    aux=0;
+    while(crecer > 0){
+        if (flor[mayor]==0){
+            --mayor;
+        }else{
+        --flor[mayor];
+        ++aux;
+        crecer-=mayor;
+        }
+        }
+    }
+    else{
+        aux=-1;
+    }
+    cout<<aux<<endl;
+    return 0;
+}
